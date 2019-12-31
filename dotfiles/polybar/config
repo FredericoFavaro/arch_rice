@@ -1,0 +1,172 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;                                                          ;
+;  ██████   ██████  ██   ██    ██ ██████   █████  ██████   ;
+;  ██   ██ ██    ██ ██    ██  ██  ██   ██ ██   ██ ██   ██  ;
+;  ██████  ██    ██ ██     ████   ██████  ███████ ██████   ;
+;  ██      ██    ██ ██      ██    ██   ██ ██   ██ ██   ██  ;
+;  ██       ██████  ███████ ██    ██████  ██   ██ ██   ██  ;
+;                                                          ;
+;  Arquivo de configuracao do Polybar                      ;
+;                                                          ;
+;  Frederico Favaro                                        ;
+;  https://www.fredericofavaro.com                         ;
+;  https://github.com/fredericofavaro                      ;
+;                                                          ;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+[colors]
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+[bar/minimal]
+
+;{{{ i3WM CONFIG
+
+;wm-restack = i3
+;override-redirect = true
+
+scroll-up = i3wm-wsnext
+scroll-down = i3wm-wsprev
+
+;}}}
+
+;{{{ POSICAO
+
+monitor = HDMI1
+bottom = false
+
+;}}}
+
+;{{{ TAMANHO
+
+width = 100%
+height = 3
+
+border-top-size = 4
+border-bottom-size = 4
+border-right-size = 0
+border-left-size = 0
+
+padding-left = 3
+padding-right = 3
+
+line-size = 3
+
+;}}}
+
+;{{{ FONTS
+
+font-0 = "System San Francisco Text:size=10;3"
+font-1 = "System San Francisco:style=Bold:size=10;3"
+font-2 = "Font Awesome 5 Free:style=Solid:pixelsize=10;2"
+font-3 = "Font Awesome 5 Free:style=Regular:pixelsize=10;2"
+font-4 = "Font Awesome 5 Brands:pixelsize=10;3"
+
+;}}}
+
+;{{{ CORES
+
+background = 0
+;background = #2F343F
+;foreground = #c5a9f9
+border-color = 0
+
+;pseudo-transparency = true
+
+;}}}
+
+
+;{{{ MODULOS-Estilo e alinhamento
+
+fixed-center = true
+module-margin = 2
+
+modules-center = i3 
+modules-right = volume
+
+:}}}
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                        MODULOS                         ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;{{{
+[module/i3]
+type = internal/i3
+enable-click = true
+enable-scroll = true
+strip-wsnumbers = false
+;format = <label-state> <label-mode> 
+pin-workspaces = false
+index-sort = true
+
+label-focused = _
+label-focused-padding = 6
+label-focused-margin = 2
+;label-focused-overline = #FF00BF
+label-focused-foreground = #2F343F
+label-focused-background = #FF00BF
+
+label-unfocused = _
+label-unfocused-padding = 2
+label-unfocused-margin = 2
+;label-unfocused-overline = #A9A9A9
+label-unfocused-foreground = #2F343F
+label-unfocused-background = #A9A9A9
+
+label-visible = _
+label-visible-padding = 2
+label-visible-margin = 2
+;label-visible-overline = #FF00BF
+;label-visible-underline = #ffffff
+label-visible-foreground = #2F343F
+label-visible-background = #FF00BF
+
+label-urgent = _
+label-urgent-padding = 2
+label-urgent-margin = 2
+label-urgent-foreground = #fc0000
+label-urgent-background = #fc0000
+;}}}
+
+;{{{
+[module/volume]
+type = internal/volume
+format-volume = "<bar-volume>"
+
+;label-volume "Vol"
+;label-volume-foreground = #40ab4b
+;label-muted = 
+label-muted = ----------
+bar-volume-width = 10
+;bar-volume-foreground-0 = #FF00BF
+;bar-volume-foreground-1 = #FF00BF
+;bar-volume-foreground-2 = #FF00BF
+;bar-volume-foreground-3 = #FF00BF
+;bar-volume-foreground-4 = #FF00BF
+;bar-volume-foreground-5 = #FF00BF
+;bar-volume-foreground-6 = #FF00BF
+;bar-volume-foreground-7 = #FF00BF
+;bar-volume-foreground-8 = #FF00BF
+;bar-volume-foreground-9 = #FF00BF
+;bar-volume-foreground-10 = #FF00BF
+
+bar-volume-gradient = false
+bar-volume-indicator = -
+bar-volume-indicator-background = #FF00BF
+bar-volume-indicator-foreground = #FF00BF
+;bar-volume-indicator-font = 2
+bar-volume-fill = -
+;bar-volume-fill-font = 2
+bar-volume-empty = -
+;bar-volume-empty-font = 2
+bar-volume-empty-foreground = #A9A9A9
+bar-volume-empty-background = #A9A9A9
+format-volume-foreground = #FF00BF
+format-volume-background = #FF00BF
+;format-muted-prefix = "x"
+format-muted-foreground = #fc0000
+format-muted-background = #fc0000
+click-right = exec thunar
+;}}}

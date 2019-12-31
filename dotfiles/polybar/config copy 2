@@ -1,0 +1,149 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;                                                          ;
+;  ██████   ██████  ██   ██    ██ ██████   █████  ██████   ;
+;  ██   ██ ██    ██ ██    ██  ██  ██   ██ ██   ██ ██   ██  ;
+;  ██████  ██    ██ ██     ████   ██████  ███████ ██████   ;
+;  ██      ██    ██ ██      ██    ██   ██ ██   ██ ██   ██  ;
+;  ██       ██████  ███████ ██    ██████  ██   ██ ██   ██  ;
+;                                                          ;
+;  Arquivo de configuracao do Polybar                      ;
+;                                                          ;
+;  Frederico Favaro                                        ;
+;  https://www.fredericofavaro.com                         ;
+;  https://github.com/fredericofavaro                      ;
+;                                                          ;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+[colors]
+
+[colors]
+background = #16060B
+foreground = #798D8F
+blue  = #244E64
+white = #FFFFFF
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+[bar/mini]
+width = 70%
+height = 40
+offset-x = 15%
+offset-y = 1%
+radius = 0.0
+fixed-center = true
+ 
+background = ${colors.background}
+foreground = ${colors.foreground}
+ 
+border-size = 2
+border-color = ${colors.foreground}
+
+font-0 = "System San Francisco:size=10;3"
+font-1 = "Font Awesome 5 Free:style=Solid:pixelsize=10;3"
+font-2 = "Font Awesome 5 Free:style=Regular:pixelsize=10;3"
+font-3 = "Font Awesome 5 Brands:pixelsize=10;3"
+
+modules-left = i3
+modules-center =
+modules-right = volume clock
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                        MODULOS                         ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;{{{
+[module/i3]
+type = internal/i3
+
+ws-icon-0 = 1; 
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+ws-icon-4 = 5;
+ws-icon-5 = 6;
+ws-icon-6 = 7;
+ws-icon-7 = 8;
+ws-icon-8 = 9;
+ws-icon-9 = 10;
+
+pin-workspaces = true
+inline-mode = true
+enable-click = true
+enable-scroll = true
+reverse-scroll = true
+fuzzy-match = true
+ 
+;Dunno what this does
+format = <label-state>
+format-padding = 1
+ 
+ 
+;NOTE: YOU CANNOT HAVE NAME AND ICON
+;TOGETHER ONLY ONE OR THE OTHER!!
+ 
+label-focused = %icon%
+label-focused-foreground = ${colors.blue}
+label-focused-padding = 1
+ 
+label-occupied = %icon%
+label-occupied-foreground = ${colors.white}
+label-occupied-padding = 1
+ 
+label-empty = %icon%
+label-empty-foreground = ${colors.white}
+label-empty-padding = 1
+;}}}
+
+
+;{{{
+[module/xwindow]
+type = internal/xwindow
+;}}}
+
+;{{{
+[module/time]
+type = internal/date
+
+interval = 1.0
+
+date =  %H:%M
+;}}}
+
+;{{{
+[module/date]
+type = internal/date
+date =  %e %B - %A
+label = %date%
+;}}}
+
+;{{{
+[module/volume]
+type = internal/volume
+
+format-volume = <ramp-volume> <label-volume>
+format-muted =   0%
+
+
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+;}}}
+
+;{{{
+[module/cpu]
+type = internal/cpu
+label =  %percentage%%
+;}}}
+
+;{{{
+[module/memory]
+type = internal/memory
+label =  %gb_used%
+;}}}
+
+
+
+
+
+
+
+
