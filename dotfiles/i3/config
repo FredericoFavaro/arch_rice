@@ -270,8 +270,8 @@ assign [class="Thunar"] $ws3
 #exec_always --no-startup-id xsetroot -solid "#ffffff"
 #exec --no-startup-id udiskie --no-automount --no-notify --tray --use-udisks2
 exec --no-startup-id compton
-exec --no-startup-id polybar minimal
-#exec_always --no-startup-id nm-applet
+exec --no-startup-id polybar bar1
+exec --no-startup-id nm-applet
 exec --no-startup-id xrandr --output DP1 --off --output HDMI1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI2 --off --output HDMI3 --off --output VIRTUAL1 --off
 
 

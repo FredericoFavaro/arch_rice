@@ -12,3 +12,5 @@ PS1='[\u@\h \W]\$ '
 
 alias manage='python $VIRTUAL_ENV/../manage.py'
 
+
+eval "$(thefuck --alias)"

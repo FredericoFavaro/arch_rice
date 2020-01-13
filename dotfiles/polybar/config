@@ -1,26 +1,35 @@
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;                                                          ;
-;  ██████   ██████  ██   ██    ██ ██████   █████  ██████   ;
-;  ██   ██ ██    ██ ██    ██  ██  ██   ██ ██   ██ ██   ██  ;
-;  ██████  ██    ██ ██     ████   ██████  ███████ ██████   ;
-;  ██      ██    ██ ██      ██    ██   ██ ██   ██ ██   ██  ;
-;  ██       ██████  ███████ ██    ██████  ██   ██ ██   ██  ;
-;                                                          ;
-;  Arquivo de configuracao do Polybar                      ;
-;                                                          ;
-;  Frederico Favaro                                        ;
-;  https://www.fredericofavaro.com                         ;
-;  https://github.com/fredericofavaro                      ;
-;                                                          ;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+;  ██████   ██████  ██   ██    ██ ██████   █████  ██████   
+;  ██   ██ ██    ██ ██    ██  ██  ██   ██ ██   ██ ██   ██  
+;  ██████  ██    ██ ██     ████   ██████  ███████ ██████   
+;  ██      ██    ██ ██      ██    ██   ██ ██   ██ ██   ██  
+;  ██       ██████  ███████ ██    ██████  ██   ██ ██   ██  
+;                                                          
+;  Arquivo de configuracao do Polybar baseado no tema Arc  
+;  (https://github.com/horst3180/arc-theme) e pensado em   
+;  ser minimalista e produtivo.                             
+;                                                       
+;  Frederico Favaro                                        
+;  https://www.fredericofavaro.com                         
+;  https://github.com/fredericofavaro                      
+
 
 [colors]
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+black = #000000
+gray1 = #2F343F
+gray2 = #383C4A
+gray3 = #404552
+gray4 = #F5F6F7
+white = #FFFFFF
+blue  = #5294E2
+red   = #CC575D
+green = #60B48A
 
-[bar/minimal]
+[bar/bar1]
 
-;{{{ i3WM CONFIG
+;{ i3WM CONFIG
 
 ;wm-restack = i3
 ;override-redirect = true
@@ -28,61 +37,70 @@
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
 
-;}}}
+;}
 
-;{{{ POSICAO
+;{{{ POSICAO & TAMANHO
 
 monitor = HDMI1
 bottom = false
 
-;}}}
-
-;{{{ TAMANHO
-
 width = 100%
-height = 3
+height = 26
+;offset-x = 5%
+;offset-y = 1%
+;}}}
 
-border-top-size = 4
-border-bottom-size = 4
-border-right-size = 0
-border-left-size = 0
+;{{{ BORDA & LINHA
 
-padding-left = 3
-padding-right = 3
+border-top-size = 2
+border-bottom-size = 2
+border-right-size = 2
+border-left-size = 2
 
-line-size = 3
+padding-left = 0 
+padding-right = 0
+
+line-size = 2
 
 ;}}}
 
-;{{{ FONTS
+;{{{ FONTES
 
-font-0 = "System San Francisco Text:size=10;3"
-font-1 = "System San Francisco:style=Bold:size=10;3"
-font-2 = "Font Awesome 5 Free:style=Solid:pixelsize=10;2"
-font-3 = "Font Awesome 5 Free:style=Regular:pixelsize=10;2"
-font-4 = "Font Awesome 5 Brands:pixelsize=10;3"
+font-0 = "System San Francisco Text:size=10;2"
+font-1 = "System San Francisco:style=Regular:size=10;2"
+font-2 = "Font Awesome 5 Free:style=Solid:pixelsize=8;2"
+font-3 = "Font Awesome 5 Free:style=Regular:pixelsize=8;2"
+font-4 = "Font Awesome 5 Brands:pixelsize=8;2"
 
 ;}}}
 
 ;{{{ CORES
 
-background = 0
-;background = #2F343F
-;foreground = #c5a9f9
-border-color = 0
-
-;pseudo-transparency = true
+background = ${colors.gray1}
+foreground = ${colors.gray4}
+border-color = ${colors.gray1}
 
 ;}}}
 
+;{{{ SYSTEM TRAY
 
-;{{{ MODULOS-Estilo e alinhamento
+tray-position = right
+;Se true a barra nao se adapta de acordo com os icones
+tray-detached = false
+;tray-padding = 0
+;tray-transparent = true
+;tray-background = ${colors.gray1}
+
+;}}}
+
+;{{{ MODULOS
 
 fixed-center = true
-module-margin = 2
+module-margin = 0
 
-modules-center = i3 
-modules-right = volume
+modules-left = i3 xwindow
+modules-center = 
+modules-right = volume date 
 
 :}}}
 
@@ -92,81 +110,118 @@ modules-right = volume
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;{{{
+
 [module/i3]
 type = internal/i3
 enable-click = true
 enable-scroll = true
 strip-wsnumbers = false
-;format = <label-state> <label-mode> 
+format = <label-state> <label-mode> 
 pin-workspaces = false
 index-sort = true
 
-label-focused = _
-label-focused-padding = 6
-label-focused-margin = 2
-;label-focused-overline = #FF00BF
-label-focused-foreground = #2F343F
-label-focused-background = #FF00BF
+ws-icon-0 = 1; 
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+ws-icon-4 = 5;
+ws-icon-5 = 6;
+ws-icon-6 = 7;
+ws-icon-7 = 8;
+ws-icon-8 = 9;
+ws-icon-9 = 0;
 
-label-unfocused = _
+;Variaveis background foreground underline overline padding margin
+
+label-mode-foreground = ${colors.gray4}
+label-mode-background = ${colors.green}
+label-mode-padding = 2
+label-mode-margin = 0
+
+label-focused = %icon% %name%
+label-focused-padding = 2
+label-focused-margin = 0
+label-focused-foreground = ${colors.blue}
+;label-focused-background = ${colors.gray3}
+
+label-unfocused = %icon% %name%
 label-unfocused-padding = 2
-label-unfocused-margin = 2
-;label-unfocused-overline = #A9A9A9
-label-unfocused-foreground = #2F343F
-label-unfocused-background = #A9A9A9
+label-unfocused-margin = 0
+label-unfocused-foreground = ${colors.gray4}
 
-label-visible = _
+label-visible = %icon% %name%
 label-visible-padding = 2
-label-visible-margin = 2
-;label-visible-overline = #FF00BF
-;label-visible-underline = #ffffff
-label-visible-foreground = #2F343F
-label-visible-background = #FF00BF
+label-visible-margin = 0
+label-visible-foreground = ${colors.blue}
 
-label-urgent = _
+label-urgent = %icon% %name%
 label-urgent-padding = 2
-label-urgent-margin = 2
-label-urgent-foreground = #fc0000
-label-urgent-background = #fc0000
+label-urgent-margin = 0
+label-urgent-foreground = ${colors.red}
+
+;}}}
+
+;{{{
+[module/separador]
+type = custom/text
+content = I
+content-foreground = ${colors.gray4}
+content-padding = 2
+;}}}
+
+;{{{
+[module/xwindow]
+type = internal/xwindow
+
+format = <label>
+format-padding = 2
+
+label = I    %title%
+label-maxlen = 30
+
+;}}}
+
+;{{{
+[module/date]
+type = internal/date
+date = %{F#5294E2}%{F-} %e %b - %H:%M
+label = %date%
+interval = 1.0
+label-padding = 2
 ;}}}
 
 ;{{{
 [module/volume]
-type = internal/volume
-format-volume = "<bar-volume>"
+type = internal/alsa
 
-;label-volume "Vol"
-;label-volume-foreground = #40ab4b
-;label-muted = 
-label-muted = ----------
-bar-volume-width = 10
-;bar-volume-foreground-0 = #FF00BF
-;bar-volume-foreground-1 = #FF00BF
-;bar-volume-foreground-2 = #FF00BF
-;bar-volume-foreground-3 = #FF00BF
-;bar-volume-foreground-4 = #FF00BF
-;bar-volume-foreground-5 = #FF00BF
-;bar-volume-foreground-6 = #FF00BF
-;bar-volume-foreground-7 = #FF00BF
-;bar-volume-foreground-8 = #FF00BF
-;bar-volume-foreground-9 = #FF00BF
-;bar-volume-foreground-10 = #FF00BF
+format-volume = %{F#5294E2}<ramp-volume>%{F-}  <label-volume>
+format-muted = %{F#5294E2}%{F-} mute
+format-muted-padding = 2
 
-bar-volume-gradient = false
-bar-volume-indicator = -
-bar-volume-indicator-background = #FF00BF
-bar-volume-indicator-foreground = #FF00BF
-;bar-volume-indicator-font = 2
-bar-volume-fill = -
-;bar-volume-fill-font = 2
-bar-volume-empty = -
-;bar-volume-empty-font = 2
-bar-volume-empty-foreground = #A9A9A9
-bar-volume-empty-background = #A9A9A9
-format-volume-foreground = #FF00BF
-format-volume-background = #FF00BF
-;format-muted-prefix = "x"
-format-muted-foreground = #fc0000
-format-muted-background = #fc0000
-click-right = exec thunar
+;ramp-volume-0 = 
+;ramp-volume-1 = 
+ramp-volume-0 = 
+
+format-volume-padding = 2
+
 ;}}}
+
+;{{{
+[module/cpu]
+type = internal/cpu
+label =  %percentage%%
+;}}}
+
+;{{{
+[module/memory]
+type = internal/memory
+label =  %gb_used%
+;}}}
+
+
+
+
+
+
+
+

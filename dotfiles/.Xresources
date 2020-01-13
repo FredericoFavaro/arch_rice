@@ -1,0 +1,42 @@
+!FONT
+URxvt.font:               xft:DejaVu Sans Mono:size=10
+URxvt.boldFont:           xft:DejaVu Sans Mono:size=10:bold
+URxvt.italicFont:         xft:DejaVu Sans Mono:size=10:italic 
+URxvt.boldItalicFont:     xft:DejaVu Sans Mono:size=10:bild:italic
+
+!SCROLLBACK
+!  Show?
+URxvt.scrollBar:          false
+!  do not scroll with output
+URxvt*scrollTtyOutput:    false
+!  scroll in relation to buffer (with mouse scroll or Shift+Page Up)
+URxvt*scrollWithBuffer:   true
+!  scroll back to the bottom on keypress
+URxvt*scrollTtyKeypress:  true
+
+!COLOR SCHEME
+*.foreground  : #F5F6F7
+*.background  : #2F343F
+*.cursorColor : #FF00BF
+*.color0      : #000000
+*.color8      : #666666
+*.color1      : #CD3131
+*.color9      : #F14C4C
+*.color2      : #0DBC79
+*.color10     : #23D18B
+*.color3      : #E5E510
+*.color11     : #F5F543
+*.color4      : #2472C8
+*.color12     : #3B8EEA
+*.color5      : #BC3FBC
+*.color13     : #D670D6
+*.color6      : #11A8CD
+*.color14     : #29B8D8
+*.color7      : #E5E5E5
+*.color15     : #E5E5E5
+
+!EXTENSIONS
+URxvt.perl-ext-common: keyboard-select,resize-font
+!  keyboard-select
+URxvt.keysym.M-Escape: perl:keyboard-select:activate
+URxvt.keysym.M-r: perl:keyboard-select:search

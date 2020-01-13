@@ -14,43 +14,35 @@
 ;                                                          ;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-[colors]                                                       ; Baseado no tema Arc (https://github.com/horst3180/arc-theme).
+[colors]
 
-dark1 = #2F343F
-dark2 = #383C4A
-dark3 = #404552
-gray  = #F5F6F7
-white = #FFFFFF
-blue  = #5294E2
-red   = #CC575D
-green = #60B48A
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+[bar/single]
 
-[bar/bar1]
+;{{{ i3WM CONFIG
 
-;{ i3WM CONFIG
+;wm-restack = i3
+;override-redirect = true
 
-;wm-restack = i3              ;??.
-;override-redirect = true     ;Barra sobrepoe as janelas.
+scroll-up = i3wm-wsnext
+scroll-down = i3wm-wsprev
 
-scroll-up = i3wm-wsnext       ;Usar o scroll para navegar entre as workspaces.
-scroll-down = i3wm-wsprev     ;Usar o scroll para navegar entre as workspaces.
+;}}}
 
-;}
-
-;{{{ POSICAO & TAMANHO
+;{{{ POSICAO
 
 monitor = HDMI1
 bottom = false
 
-width = 100%
-height = 25
-offset-x = 5%  ;Posicionamento no eixo x.
-offset-y = 1%  ;Posicionamento no eixo y.
-
 ;}}}
 
-;{{{ BORDA & LINHA
+;{{{ TAMANHO
+
+width = 100%
+height = 25
+offset-x = 5%
+offset-y = 1%
 
 border-top-size = 5
 border-bottom-size = 0
@@ -76,9 +68,9 @@ font-4 = "Font Awesome 5 Brands:pixelsize=10;3"
 
 ;{{{ CORES
 
-background = ${colors.dark}
+background = 0
 ;foreground = #c5a9f9
-border-color = #c5a9f9
+border-color = 0
 
 pseudo-transparency = true
 
