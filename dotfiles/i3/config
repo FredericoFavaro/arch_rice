@@ -29,7 +29,7 @@ font pango:DejaVu Sans Mono 9
 floating_modifier $mod
 
 # start a terminal
-#bindsym $mod+Return exec urxvt
+bindsym Mod1+Return exec urxvt
 bindsym $mod+Return exec $emuterm
 
 
@@ -152,7 +152,7 @@ mode "resize" {
         bindsym j resize shrink width 10 px or 10 ppt
         bindsym k resize grow height 10 px or 10 ppt
         bindsym l resize shrink height 10 px or 10 ppt
-        bindsym semicolon resize grow width 10 px or 10 ppt
+        bindsym cedilla resize grow width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
@@ -187,7 +187,8 @@ new_float normal 2
 ### GRAY COLOR
 
 set $bg            #2F343F
-set $active-bg     #FF00BF
+#set $active-bg     #FF00BF
+set $active-bg     #5294E2
 set $inactive-bg   #2F343F
 set $text          #2F343F
 set $inactive-text #555E71
@@ -230,8 +231,8 @@ gaps outer 0
 # Smart gaps (gaps used if only more than one container on the workspace)
 smart_gaps on
 
-# Smart borders (draw borders around container only if it is not the only container $
-# on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the ed$
+# Smart borders (draw borders around container only if it is not the only container)
+# on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the ed)
 smart_borders on
 
 
@@ -240,12 +241,27 @@ smart_borders on
 ###########
 
 ### Softwares
-bindsym $mod+F9 exec --no-startup-id ~/.config/scripts/monitor_selection.sh
+
 bindsym $mod+F1 exec --no-startup-id firefox
-bindsym $mod+F2 exec --no-startup-id thunar
+bindsym $mod+Shift+F1 exec --no-startup-id opera
+bindsym $mod+F2 exec --no-startup-id code
+#bindsym $mod+Shift+F2 exec --no-startup-id
+bindsym $mod+F3 exec --no-startup-id thunar
+#bindsym $mod+Shift+F3 exec --no-startup-id
+#bindsym $mod+F4 exec --no-startup-id
+#bindsym $mod+Shift+F4 exec --no-startup-id
+#bindsym $mod+F5 exec --no-startup-id
+#bindsym $mod+Shift+F5 exec --no-startup-id
+#bindsym $mod+F6 exec --no-startup-id
+#bindsym $mod+Shift+F6 exec --no-startup-id
+#bindsym $mod+F7 exec --no-startup-id
+#bindsym $mod+Shift+F7 exec --no-startup-id
+#bindsym $mod+F8 exec --no-startup-id
+#bindsym $mod+Shift+F8 exec --no-startup-id
 # Abrir arquivos de configuração
-bindsym $mod+F12 exec $emuterm vim ~/.config/i3/config
-bindsym $mod+Shift+F12 exec $emuterm -e vim ~/.config/polybar/config
+bindsym $mod+F9 exec --no-startup-id ~/.scripts/monitor_selection.sh
+bindsym $mod+F12 exec urxvt -e vim ~/.config/i3/config
+bindsym $mod+Shift+F12 exec urxvt -e vim ~/.config/polybar/config
 
 # bloquear tela
 bindsym $mod+Shift+x exec i3lock -c 2f343f
@@ -266,12 +282,12 @@ assign [class="Thunar"] $ws3
 
 ### Iniciando com o sistema
 #wallpaper
-#exec_always --no-startup-id feh --bg-tile /home/fredericofavaro/Imagens/wallpaper.jpg
-#exec_always --no-startup-id xsetroot -solid "#ffffff"
+#exec_always --no-startup-id feh --bg-tile ~/.wallpaper.jpg
+exec_always --no-startup-id xsetroot -solid "#ffffff"
 #exec --no-startup-id udiskie --no-automount --no-notify --tray --use-udisks2
 exec --no-startup-id compton
 exec --no-startup-id polybar bar1
-exec --no-startup-id nm-applet
+#exec --no-startup-id nm-applet
 exec --no-startup-id xrandr --output DP1 --off --output HDMI1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI2 --off --output HDMI3 --off --output VIRTUAL1 --off
 
 
