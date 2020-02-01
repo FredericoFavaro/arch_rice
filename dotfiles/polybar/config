@@ -142,7 +142,7 @@ label-focused = %icon% %name%
 label-focused-padding = 2
 label-focused-margin = 0
 label-focused-foreground = ${colors.blue}
-;label-focused-background = ${colors.gray3}
+label-focused-background = ${colors.gray3}
 
 label-unfocused = %icon% %name%
 label-unfocused-padding = 2
