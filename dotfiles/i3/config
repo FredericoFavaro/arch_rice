@@ -201,28 +201,10 @@ client.unfocused        $inactive-bg $inactive-bg $inactive-text
 client.focused_inactive $inactive-bg $inactive-bg $inactive-text 
 client.urgent           $urgent-bg   $urgent-bg   $text          
 
-##############
-### i3 Bar ###
-##############
 
-#bar {
-#        position top
-#        status_command i3blocks -c ~/.config/i3/i3blocks.conf
-#	strip_workspace_numbers no
-#	colors {
-#        	background $bg
-#        	separator $bg
-#        	#                  border       background   text
-#        	focused_workspace  $bg          $bg          $active-bg
-#        	active_workspace   $bg          $bg          #FF0000
-#        	inactive_workspace $inactive-bg $inactive-bg $inactive-text
-#        	urgent_workspace   $urgent-bg   $urgent-bg   $inactive-text
-#        	}
-#}
-
-###########
-# I3 GAPS #
-###########
+########
+# GAPS #
+########
 
 # Set inner/outer gaps
 gaps inner 10
@@ -242,11 +224,11 @@ smart_borders on
 
 ### Softwares
 
-bindsym $mod+F1 exec --no-startup-id firefox
+bindsym $mod+F1       exec --no-startup-id firefox
 bindsym $mod+Shift+F1 exec --no-startup-id opera
-bindsym $mod+F2 exec --no-startup-id code
+bindsym $mod+F2       exec --no-startup-id code
 #bindsym $mod+Shift+F2 exec --no-startup-id
-bindsym $mod+F3 exec --no-startup-id thunar
+bindsym $mod+F3       exec --no-startup-id thunar
 #bindsym $mod+Shift+F3 exec --no-startup-id
 #bindsym $mod+F4 exec --no-startup-id
 #bindsym $mod+Shift+F4 exec --no-startup-id
@@ -267,16 +249,27 @@ bindsym $mod+Shift+F12 exec urxvt -e vim ~/.config/polybar/config
 bindsym $mod+Shift+x exec i3lock -c 2f343f
 
 
-#############
-# Softwares #
-#############
+#################
+# Comportamento #
+#################
 # Usar xprop para identificar a class dos programas
 ### Workspaces especificos
 assign [class="firefox"] $ws1
+assign [class="code-oss"] $ws2
 assign [class="Thunar"] $ws3
 
-### Floated 
-#for_window [class="Thunar"] floating enable, focus
+### Comportamento 
+for_window [class="firefox"] focus
+for_window [class="code-oss"] focus
+for_window [class="Thunar"] focus
+
+for_window [class="Lxappearance"] floating enable
+for_window [class="Gpick"] floating enable
+for_window [class="Arandr"] floating enable
+
+#for_window [class=""]
+#for_window [class=""]
+#for_window [class=""]
 #for_window [class="Nemo"] floating enable
 
 
@@ -287,6 +280,7 @@ exec_always --no-startup-id xsetroot -solid "#ffffff"
 #exec --no-startup-id udiskie --no-automount --no-notify --tray --use-udisks2
 exec --no-startup-id compton
 exec --no-startup-id polybar bar1
+exec --no-startup-id unclutter
 #exec --no-startup-id nm-applet
 exec --no-startup-id xrandr --output DP1 --off --output HDMI1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI2 --off --output HDMI3 --off --output VIRTUAL1 --off
 
@@ -296,9 +290,14 @@ exec --no-startup-id xrandr --output DP1 --off --output HDMI1 --primary --mode 1
 #####################
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound $
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound $
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+#bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound $
+#bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound $
+#bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+
+
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% #increase sound $
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% #decrease sound $
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle # mute sound
 
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
