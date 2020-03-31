@@ -222,6 +222,9 @@ smart_borders on
 # Atalhos #
 ###########
 
+# DEIXAR CODIGO MAIS LIMPO
+#for_window [class="Evince"] rename workspace 5 to "5: doc", move container to workspace "5: doc", workspace "5: doc", focus
+
 ### Softwares
 
 bindsym $mod+F1       exec --no-startup-id firefox
@@ -230,7 +233,7 @@ bindsym $mod+F2       exec --no-startup-id code
 #bindsym $mod+Shift+F2 exec --no-startup-id
 bindsym $mod+F3       exec --no-startup-id thunar
 #bindsym $mod+Shift+F3 exec --no-startup-id
-#bindsym $mod+F4 exec --no-startup-id
+bindsym $mod+F4       exec --no-startup-id com.spotify.Client, rename workspace $ws9 to "9: bla", workspace $ws9, focus
 #bindsym $mod+Shift+F4 exec --no-startup-id
 #bindsym $mod+F5 exec --no-startup-id
 #bindsym $mod+Shift+F5 exec --no-startup-id
@@ -245,6 +248,12 @@ bindsym $mod+F9 exec --no-startup-id ~/.scripts/monitor_selection.sh
 bindsym $mod+F12 exec urxvt -e vim ~/.config/i3/config
 bindsym $mod+Shift+F12 exec urxvt -e vim ~/.config/polybar/config
 
+### Acoes
+# print screen
+bindsym Print exec scrot
+# print screen area
+bindsym $mod+F8 exec --no-startup-id scrot -s
+
 # bloquear tela
 bindsym $mod+Shift+x exec i3lock -c 2f343f
 
@@ -257,6 +266,9 @@ bindsym $mod+Shift+x exec i3lock -c 2f343f
 assign [class="firefox"] $ws1
 assign [class="code-oss"] $ws2
 assign [class="Thunar"] $ws3
+assign [class="discord"] $ws7
+assign [class="Spotify"] $ws9
+assign [class="Steam"] $ws8
 
 ### Comportamento 
 for_window [class="firefox"] focus
@@ -279,6 +291,7 @@ for_window [class="Arandr"] floating enable
 exec_always --no-startup-id xsetroot -solid "#ffffff"
 #exec --no-startup-id udiskie --no-automount --no-notify --tray --use-udisks2
 exec --no-startup-id compton
+exec --no-startup-id insync
 exec --no-startup-id polybar bar1
 exec --no-startup-id unclutter
 #exec --no-startup-id nm-applet
