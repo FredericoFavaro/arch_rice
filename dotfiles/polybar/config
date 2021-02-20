@@ -4,27 +4,18 @@
 ;  ██████  ██    ██ ██     ████   ██████  ███████ ██████   
 ;  ██      ██    ██ ██      ██    ██   ██ ██   ██ ██   ██  
 ;  ██       ██████  ███████ ██    ██████  ██   ██ ██   ██  
-;                                                          
-;  Arquivo de configuracao do Polybar baseado no tema Arc  
-;  (https://github.com/horst3180/arc-theme) e pensado em   
-;  ser minimalista e produtivo.                             
-;                                                       
-;  Frederico Favaro                                        
-;  https://www.fredericofavaro.com                         
-;  https://github.com/fredericofavaro                      
+;
+;  Frederico Favaro                                                          
+;  https://github.com/fredericofavaro
 
 
 [colors]
 
-black = #000000
-gray1 = #2F343F
-gray2 = #383C4A
-gray3 = #404552
-gray4 = #F5F6F7
-white = #FFFFFF
-blue  = #5294E2
-red   = #CC575D
-green = #60B48A
+background = #2F343F
+foreground = #cfd6e6
+blue  = #5294e2
+red   = #ff534e
+green = #49ed53
 
 
 [bar/bar1]
@@ -41,7 +32,7 @@ scroll-down = i3wm-wsprev
 
 ;{ POSICAO & TAMANHO
 
-monitor = HDMI1
+;monitor = HDMI1
 bottom = false
 
 width = 100%
@@ -77,20 +68,20 @@ font-4 = "Font Awesome 5 Brands:pixelsize=8;2"
 
 ;{ CORES
 
-background = ${colors.gray1}
-foreground = ${colors.gray4}
-border-color = ${colors.gray1}
+background = ${colors.background}
+foreground = ${colors.foreground}
+border-color = ${colors.background}
 
 ;}
 
 ;{ SYSTEM TRAY
 
-tray-position = right
+;tray-position = right
 ;Se true a barra nao se adapta de acordo com os icones
 tray-detached = false
 ;tray-padding = 0
 ;tray-transparent = true
-;tray-background = ${colors.gray1}
+;tray-background = ${colors.background}
 
 ;}
 
@@ -103,7 +94,7 @@ modules-left = i3 xwindow
 ;modules-center = xwindow
 modules-right = cpu temperature memory volume date
 
-:}}}
+;}}}
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -134,8 +125,8 @@ ws-icon-9 = 0;
 
 ;Variaveis background foreground underline overline padding margin
 
-label-mode-foreground = ${colors.gray4}
-label-mode-background = ${colors.green}
+label-mode-foreground = ${colors.background}
+label-mode-background = ${colors.blue}
 label-mode-padding = 2
 label-mode-margin = 0
 
@@ -148,7 +139,7 @@ label-focused-overline = ${colors.blue}
 label-unfocused = %icon%  %name%
 label-unfocused-padding = 4
 label-unfocused-margin = 0
-label-unfocused-foreground = ${colors.gray4}
+label-unfocused-foreground = ${colors.foreground}
 
 label-visible = %icon%  %name%
 label-visible-padding = 4
@@ -166,8 +157,7 @@ label-urgent-foreground = ${colors.red}
 [module/separador]
 type = custom/text
 content = I
-content-foreground = ${colors.gray4}
-content-padding = 2
+content-foreground = ${colorspadding = 2
 ;}}}
 
 ;{{{
@@ -322,7 +312,7 @@ ramp-3 = 
 ramp-3-foreground = ${colors.red}
 ramp-foreground = ${colors.blue}
 ramp-padding-right = 0
-}}}
+;}}}
 
 
 

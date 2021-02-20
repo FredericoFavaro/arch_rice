@@ -1,26 +1,34 @@
-##############################################################
-#                                                            #
-#  ██ ██████   Arquivo de customização para o gerenciador    #
-#  ██      ██  de janelas i3-gaps. Como referencia consulte  #
-#  ██  █████   o guia do usuario acessando o link:           # 
-#  ██      ██  https://i3wm.org/docs/userguide.html          #
-#  ██ ██████                                                 #
-#                                                            #
-#  Frederico Favaro                                          #
-#  https://www.fredericofavaro.com                           # 
-#  https://github.com/fredericofavaro                        #
-#                                                            #
-##############################################################
 
-#### configuracoes ####
-# Modificador padrao (mod1 = alt, mod4 = tecla windows/super)
+#  ██ ██████  ██     ██ ███    ███ 
+#  ██      ██ ██     ██ ████  ████ 
+#  ██  █████  ██  █  ██ ██ ████ ██ 
+#  ██      ██ ██ ███ ██ ██  ██  ██ 
+#  ██ ██████   ███ ███  ██      ██
+#
+#  Frederico Favaro
+#  https://github.com/fredericofavaro
+
+
+##############################
+#### CONFIGURACOES GERAIS ####
+##############################
+
+# Bloqueia mouse focus
+focus_follows_mouse no
+
+# Modificador padrao para atalhos
+#(mod1 = alt, mod4 = super)
 set $mod Mod4
+
 # Terminal padrao
 set $emuterm xfce4-terminal
+
 # Fonte / font
-font pango:DejaVu Sans Mono 9
+font pango:DejaVu Sans Mono 12
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
+
 # Define names for default workspaces for which we configure key bindings later on.
 set $ws1 "1"
 set $ws2 "2"
@@ -32,6 +40,7 @@ set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
+
 # Define a tela das workspaces
 workspace $ws1 output HDMI1
 workspace $ws2 output HDMI1
@@ -43,10 +52,12 @@ workspace $ws7 output HDMI2
 workspace $ws8 output HDMI2
 workspace $ws9 output HDMI2
 workspace $ws10 output HDMI2
+
 # bordas
 new_window pixel 2
 new_float normal 2
 #hide_edge_borders none
+
 # Gaps
 gaps inner 10
 gaps outer 0
@@ -54,18 +65,19 @@ smart_gaps on
 smart_borders on
 
 #### Esquema de cores ####
-set $bg            #2F343F
-set $active-bg     #FF00BF
+set $bg            #545864
 set $active-bg     #5294E2
-set $inactive-bg   #2F343F
-set $text          #2F343F
-set $inactive-text #555E71
-set $urgent-bg     #E53935
+set $inactive-bg   #cfd6e6
+set $text          #cfd6e6
+set $active-text   #2f343f
+set $inactive-text #cfd6e6
+set $urgent-bg     #ff534e
+
 #Class                  border       background   text           indicator
-client.focused          $active-bg   $active-bg   $text          
-client.unfocused        $inactive-bg $inactive-bg $inactive-text 
+client.focused          $active-bg   $active-bg   $active-text          
+client.unfocused        $bg          $bg          $inactive-text 
 client.focused_inactive $inactive-bg $inactive-bg $inactive-text 
-client.urgent           $urgent-bg   $urgent-bg   $text          
+client.urgent           $urgent-bg   $urgent-bg   $active-text          
 
 #### Atalhos ####
 # switch to workspace
@@ -217,14 +229,12 @@ for_window [class="Gpick"] floating enable
 for_window [class="Arandr"] floating enable
 
 #### Iniciando com o sistema ####
-#exec_always --no-startup-id feh --bg-tile ~/.wallpaper.jpg
-exec_always --no-startup-id xsetroot -solid "#ffffff"
-#exec --no-startup-id udiskie --no-automount --no-notify --tray --use-udisks2
-exec --no-startup-id compton
-exec --no-startup-id insync start
+exec_always --no-startup-id hsetroot -solid "#2F343F"
+exec --no-startup-id picom
+#exec --no-startup-id insync start
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec --no-startup-id unclutter
 #exec --no-startup-id nm-applet
-exec --no-startup-id xrandr --output DP1 --off --output HDMI1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI2 --mode 1920x1080 --pos 1920x0 --rotate normal --output HDMI3 --off --output VIRTUAL1 --off
+#exec --no-startup-id xrandr --output DP1 --off --output HDMI1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI2 --mode 1920x1080 --pos 1920x0 --rotate normal --output HDMI3 --off --output VIRTUAL1 --off
 
 
